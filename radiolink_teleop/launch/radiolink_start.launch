@@ -1,0 +1,5 @@
+<launch>
+    <rosparam command="load" file="$(find radiolink_teleop)/config/radiolink_config.yaml" ns="radiolink_teleop"/>
+    
+    <node name="radiolink_teleop" pkg="radiolink_teleop" type="t8s_hid.py" output="screen"/>
+</launch>

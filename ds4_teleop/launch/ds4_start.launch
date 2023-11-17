@@ -1,0 +1,8 @@
+<launch>
+    <rosparam command="load" file="$(find ds4_teleop)/config/ds4_config.yaml" ns="ds4_teleop"/>
+    
+    <!-- <node name="service_server" pkg="walkerbro" type="service_node.py" output="screen"/> -->
+    <node name="ds4_teleop" pkg="ds4_teleop" type="ds4_main.py" output="screen"/>
+    <node name="ds4_driver" pkg="ds4_driver" type="ds4_driver_node.py" output="screen"/>
+
+</launch>
