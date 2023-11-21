@@ -228,7 +228,7 @@ class MainWindow(QtWidgets.QDialog, Ui_Dialog):
         #     self.btn_gait_lst[i].clicked.connect(partial(self.btn_gait_clicked, i))
         self.btn_stop_walking.clicked.connect(self.btn_stop_walking_clicked)
 
-        for i in range(4):
+        for i in range(8):
             self.btn_ref_cute_lst[i].clicked.connect(partial(self.btn_ref_cute_clicked, i+1))
 
         self.box_same_kpkd.stateChanged.connect(self.box_same_kpkd_changed)
@@ -1096,9 +1096,9 @@ class MainWindow(QtWidgets.QDialog, Ui_Dialog):
         
         self.btn_ref_cute_lst = []
         scroll_area_layout = QVBoxLayout()
-        cute_actions_lst = ["1", "2", "3", "4"]
+        cute_actions_lst = ["1", "2", "3", "4", "5", "6", "7", "8"]
 
-        for i in range(4):
+        for i in range(len(cute_actions_lst)):
             self.btn_ref_cute_lst.append(QPushButton(cute_actions_lst[i]))
             self.btn_ref_cute_lst[i].setMaximumWidth(320)
 

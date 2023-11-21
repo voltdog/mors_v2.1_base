@@ -1,7 +1,7 @@
 import numpy as np
 import random
 import pybullet as p
-from  walkerbro_sim import gazebo_world_parser
+from  mors_sim import gazebo_world_parser
 
 import os
 import inspect

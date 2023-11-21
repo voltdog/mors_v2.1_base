@@ -6,7 +6,7 @@ from std_msgs.msg import Bool
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import PoseArray, Pose
-from walkerbro.srv import QuadrupedCmd, QuadrupedCmdResponse, JointsCmd
+from mors.srv import QuadrupedCmd, QuadrupedCmdResponse, JointsCmd
 import copy
 import numpy as np
 import time
