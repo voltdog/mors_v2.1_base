@@ -185,7 +185,7 @@ class Locomotion_Control(object):
         self.cmd_pose[Z] = msg.linear.z
 
         self.cmd_pose[X+3] = msg.angular.x
-        self.cmd_pose[Y+3] = msg.angular.y - 0.02
+        self.cmd_pose[Y+3] = msg.angular.y
         self.cmd_pose[Z+3] = msg.angular.z
 
         self.controller.set_cmd_pose(self.cmd_pose)

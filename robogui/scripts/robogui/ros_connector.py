@@ -5,7 +5,7 @@ from std_msgs.msg import Bool, UInt8
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import PoseArray, Pose
-from walkerbro.srv import QuadrupedCmd, QuadrupedCmdResponse, JointsCmd, JointsCmdResponse
+from mors.srv import QuadrupedCmd, QuadrupedCmdResponse, JointsCmd, JointsCmdResponse
 from sensor_msgs.msg import JointState, Imu, Temperature
 # from robo_msgs.msg import robot_state
 # from robo_msgs.msg import ll_command

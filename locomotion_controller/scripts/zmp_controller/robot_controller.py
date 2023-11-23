@@ -74,10 +74,11 @@ class RobotController():
         self.cmd_joint_vel = [0]*12
         self.cmd_joint_torq = [0]*12
         self.cmd_ef_pos = [0]*12
-        self.cmd_ef_body_pos = [ self.ef_init_x+self.cog_offset_x, -self.ef_init_y, -self.robot_height,
-                                 self.ef_init_x+self.cog_offset_x,  self.ef_init_y, -self.robot_height,
-                                -self.ef_init_x+self.cog_offset_x, -self.ef_init_y, -self.robot_height,
-                                -self.ef_init_x+self.cog_offset_x,  self.ef_init_y, -self.robot_height ]
+        self.cmd_ef_body_pos = [ self.ef_init_x, -self.ef_init_y, -self.robot_height,
+                                 self.ef_init_x,  self.ef_init_y, -self.robot_height,
+                                -self.ef_init_x, -self.ef_init_y, -self.robot_height,
+                                -self.ef_init_x,  self.ef_init_y, -self.robot_height ]
+
         self.cmd_pose = [0]*6
         self.cmd_vel = [0]*3
 
@@ -242,11 +243,12 @@ class RobotController():
         self.cmd_vel[Y] = out_param[1]
         self.cmd_vel[Z] = out_param[2]
 
-        param = np.array(self.cmd_pose)
-        d_param = param - self.pre_lpf_cmd_pose
-        out_param = param - 0.82*d_param
-        self.pre_lpf_cmd_pose = out_param[:]
-        self.cmd_pose = out_param[:]
+        # param = np.array(self.cmd_pose)
+        # d_param = param - self.pre_lpf_cmd_pose
+        # out_param = param - 0.82*d_param
+        # self.pre_lpf_cmd_pose = out_param[:]
+        # self.cmd_pose = out_param[:]
+        print(self.cmd_pose)
 
         # choose working mode
         if self.action_num != 0:
@@ -456,6 +458,7 @@ class RobotController():
         print(f"L1: {ef_pos[3:6]}")
         print(f"R2: {ef_pos[6:9]}")
         print(f"L2: {ef_pos[9:12]}")
+        print(self.cmd_ef_body_pos)
         print("===============")
 
         ref_servo_pos = self.ik.calculate(p_ref=ef_pos, config=self.kinematic_scheme)

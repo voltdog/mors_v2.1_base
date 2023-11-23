@@ -282,7 +282,7 @@ class ZMPLocomotion():
         ki = 0
         kp_r = 0.0#0.3#2#4
         kd_r = 0.0
-        kp_p = 0.3#2
+        kp_p = 0.0#2
         kd_p = 0.0
         # ki = 0.001
 
