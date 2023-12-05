@@ -43,6 +43,11 @@ class IKineQuadruped(object):
         for i in range(12):
             p_ref[i] = np.clip(p_ref[i], MAX_EF[i][0], MAX_EF[i][1])
         return p_ref
+    
+    def set_body_prms(self, bx, by, bz):
+        self.bx = bx
+        self.by = by
+        self.bz = bz
 
     def ikine_R1(self, p_ref: np.ndarray, config="m"):
         if config == "m":
@@ -54,7 +59,7 @@ class IKineQuadruped(object):
             sign1 = -1
             sign2 = 1
 
-        px = p_ref[2]
+        px = p_ref[2] - self.bz
         py = -self.by - p_ref[1]
         pz = p_ref[0] - self.bx
 
@@ -100,7 +105,7 @@ class IKineQuadruped(object):
         elif config == "x":
             sign1 = 1
 
-        px = p_ref[2]
+        px = p_ref[2] - self.bz
         py = -self.by - p_ref[1]
         pz = p_ref[0] + self.bx
 
@@ -150,7 +155,7 @@ class IKineQuadruped(object):
         elif config == "x":
             sign1 = -1
 
-        px = p_ref[2]
+        px = p_ref[2] + self.bz
         py = self.by - p_ref[1]
         pz = p_ref[0] - self.bx
 
@@ -188,7 +193,7 @@ class IKineQuadruped(object):
         elif config == "x":
             sign1 = 1
 
-        px = p_ref[2]
+        px = p_ref[2] + self.bz
         py = self.by - p_ref[1]
         pz = p_ref[0] + self.bx
 

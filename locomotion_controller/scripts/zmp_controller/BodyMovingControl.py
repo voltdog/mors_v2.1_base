@@ -31,8 +31,11 @@ class BodyMovingControl():
             p_new[3*i+0] = p_new[3*i+0]*np.cos(self.rotation[2]) - p_new[3*i+1]*np.sin(self.rotation[2])
             p_new[3*i+1] = p_new[3*i+0]*np.sin(self.rotation[2]) + p_new[3*i+1]*np.cos(self.rotation[2])
 
-            p_new[3*i+1] = p_new[3*i+1]*np.cos(self.rotation[0]) - p_new[3*i+2]*np.sin(self.rotation[0])
-            p_new[3*i+2] = p_new[3*i+1]*np.sin(self.rotation[0]) + p_new[3*i+2]*np.cos(self.rotation[0])
+            # p_new[3*i+1] = p_new[3*i+1]*np.cos(self.rotation[0]) - p_new[3*i+2]*np.sin(self.rotation[0])
+            # p_new[3*i+2] = p_new[3*i+1]*np.sin(self.rotation[0]) + p_new[3*i+2]*np.cos(self.rotation[0])
+
+            p_new[3*i+2] = p_new[3*i+2]*np.cos(self.rotation[0]) - p_new[3*i+1]*np.sin(self.rotation[0])
+            p_new[3*i+1] = p_new[3*i+2]*np.sin(self.rotation[0]) + p_new[3*i+1]*np.cos(self.rotation[0])
 
             p_new[3*i+0] = p_new[3*i+0]*np.cos(self.rotation[1]) + p_new[3*i+2]*np.sin(self.rotation[1])
             p_new[3*i+2] = -p_new[3*i+0]*np.sin(self.rotation[1]) + p_new[3*i+2]*np.cos(self.rotation[1])

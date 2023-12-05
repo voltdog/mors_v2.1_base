@@ -89,6 +89,10 @@ class RobotController():
 
         self.euler = [0]*3
 
+        self.bx = 0.1655
+        self.by = 0.066
+        self.bz = 0.0
+
         # init control algorithms
         self.ik = IKineQuadruped(theta_offset=[0, -np.pi/2, 0])
         self.fk = FKineQuadruped(theta_offset=[0, -np.pi/2, 0])
@@ -248,7 +252,7 @@ class RobotController():
         # out_param = param - 0.82*d_param
         # self.pre_lpf_cmd_pose = out_param[:]
         # self.cmd_pose = out_param[:]
-        print(self.cmd_pose)
+        # print(self.cmd_pose)
 
         # choose working mode
         if self.action_num != 0:
@@ -454,12 +458,14 @@ class RobotController():
         self.body_moving.set_body_ang_pos(self.cmd_pose[3:6])
 
         ef_pos = self.body_moving.step(self.cmd_ef_body_pos)
-        print(f"R1: {ef_pos[:3]}")
-        print(f"L1: {ef_pos[3:6]}")
-        print(f"R2: {ef_pos[6:9]}")
-        print(f"L2: {ef_pos[9:12]}")
-        print(self.cmd_ef_body_pos)
-        print("===============")
+
+        # print(f"R1: {ef_pos[:3]}")
+        # print(f"L1: {ef_pos[3:6]}")
+        # print(f"R2: {ef_pos[6:9]}")
+        # print(f"L2: {ef_pos[9:12]}")
+        # print(self.cmd_ef_body_pos)
+        # print("===============")
+
 
         ref_servo_pos = self.ik.calculate(p_ref=ef_pos, config=self.kinematic_scheme)
 
