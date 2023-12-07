@@ -41,9 +41,9 @@
     <node if="$(arg radiolink)" name="radiolink_teleop" pkg="radiolink_teleop" type="t8s_hid.py" output="screen"/>
 
     <!-- Run Bosch BNO055 IMU -->
-    <arg name="bosch_config_file" default="$(find bosch_imu_driver)/config/imu_bosch.yaml"/>
     <node if="$(arg hardware)"  pkg="bosch_imu_driver" type="bosch_imu_node.py" name="bosch_imu_node" output="screen">
         <rosparam file="$(arg bosch_config_file)" command="load" ns="bosch_imu_driver"/>
+        <arg name="bosch_config_file" default="$(find bosch_imu_driver)/config/imu_bosch.yaml"/>
     </node>
 
     <group ns="$(arg robot_name)">
